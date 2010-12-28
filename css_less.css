@@ -1,0 +1,653 @@
+/*	Less Framework 3
+	by Joni Korpi
+	http://lessframework.com	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, q, small, strong, sub, sup, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, figure, figure img, figcaption, hgroup,
+footer, header, nav, section {
+	display: block;
+}
+
+a img {border: 0;}
+
+figure {position: relative;}
+figure img {width: 100%;}
+
+
+/*	Typography presets
+	------------------	*/
+
+.gigantic {
+	font-size: 110px;
+	line-height: 120px;
+	letter-spacing: -2px;
+}
+
+.huge, h1 {
+	font-size: 68px;
+	line-height: 72px;
+	letter-spacing: -1px;
+}
+
+.large, h2 {
+	font-size: 42px;
+	line-height: 48px;
+}
+
+.big, h3 {
+	font-size: 26px;
+	line-height: 36px;
+}
+
+.normal, body {
+	font: 16px/24px Helvetica, Arial, sans-serif;
+}
+
+.small {
+	font-size: 13px;
+	line-height: 18px;
+} 
+
+a{color:#fff; text-decoration:underline;  outline:none;}
+a:hover{color:#fff; text-decoration:none;}
+a:visited{color:#fff; text-decoration:none;}
+
+
+.breaker {
+	display: block;
+	clear: both;
+	overflow: hidden;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+}
+.opacity{
+	opacity : 0.8;
+	-moz-opacity : 0.8;
+	-ms-filter: "alpha(opacity=80)"; /* IE 8 */
+	filter : alpha(opacity=80); /* IE < 8 */
+}
+.radius {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+
+
+
+
+.socialnetwork {
+	display: block;
+	background: #000;
+	margin: 10px 0;
+	padding: 0 10px;
+	height: 36px;
+	line-height: 18px;
+}
+	.socialnetwork a {
+		display: block;
+		padding: 0;
+		margin: 0;
+		float: left;
+	}
+	.socialnetwork span.share {
+		display: block;
+		float: left;
+	}
+	.socialnetwork span.share.facebook {
+		width: 62px;
+		height: 20px;
+		padding: 8px 0;
+		overflow: hidden;
+		margin: 0 auto;
+		margin-right: 5px;
+	}
+	.socialnetwork span.share.facebookshare {
+		padding: 0;
+		margin: 0;
+	}
+	.socialnetwork span.share.facebookshare a  {
+		width: 78px;
+		margin: 0 auto;
+		padding: 0;
+		margin: 0;
+		height: 18px;
+		padding: 9px 0;
+	}
+	.socialnetwork span.share.facebookshare a span {
+		position : relative;
+	}
+	.socialnetwork span.share.facebookshare .FBConnectButton {
+		position : absolute;
+	}
+	
+	.socialnetwork span.share.twitter {
+		width:111px;
+		height: 20px;
+		padding: 8px 0;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	.socialnetwork span.share a {
+		display: block;
+		height: 36px;
+		margin: 0;
+		padding: 0;
+		line-height: 36px;
+		margin-top: 4px;
+	}
+	
+	
+	
+.bullet {
+	position: absolute;	
+	display: block;
+	float: left;
+	padding-top: 22px;
+}	
+	
+	
+	.bullet input {
+		margin-left: 30px;
+	}
+	.bulletInfo {
+		position: relative;
+		display: block;
+		float: left;
+		display: block;
+		height: 45px;
+		color: #fff;
+		font-size: 11px;
+		line-height: 14px;
+		padding: 8px;
+		padding-top:14px;
+		background: transparent url(./images/bg_bullet_radio.png) left top repeat-x;
+		width:80px;
+	}
+	
+	.arrow {
+		position: absolute;
+		top: 0;
+		width: 22px;
+		height: 16px;
+		margin-top: -8px;
+		margin-left: 10px;
+		background: transparent url(./images/bg_bullet_radio_arrow.png) left top no-repeat;
+	}
+	
+	 .cleft {
+		position: absolute;
+		display: block;
+		left: -8px;
+		top: 0;
+		width: 8px;
+		height: 61px;
+		background: transparent url(./images/bg_bullet_radio_left.png) left top repeat-x;
+	}
+	 .cright {
+		position: absolute;display: block;
+		background: transparent url(./images/bg_bullet_radio_right.png) left top repeat-x;
+		right: -8px;
+		top: 0;
+		width: 8px;
+		height: 61px;
+	}
+	
+
+
+
+
+
+
+
+
+/*	Default 8-column layout
+	60 px columns, 24 px gutters, 60 px margins, 768 px total
+	---------------------------------------------------------
+	1     2      3      4      5      6      7      8     
+	60px  144px  228px  312px  396px  480px  564px  648px	*/
+
+body {
+	background: #ee3d26;
+	padding: 4px 0px 0;
+	width: 950px;
+	-webkit-tap-highlight-color: rgb(255,255,0);
+}
+
+::selection 	 {background: rgb(255,255,0);}
+::-moz-selection {background: rgb(255,255,0);}
+
+#app {
+	height: 667px;
+	background: transparent url(./images/bg_flashball.jpg) center 0 no-repeat;
+	margin: 0 auto;
+}
+
+#wrapperapp {
+height:100%;
+overflow:hidden;
+position:relative;
+}
+
+.bg {
+    position:absolute;
+    top:152px;
+}
+#wrapperapp.ensavoirplus {
+	position: relative;
+	height: 100%;
+	background: transparent url(./images/bg_ensavoirplus.png) center 180px no-repeat;
+}
+#wrapperapp.armes {
+	position: relative;
+	height: 100%;
+	background: transparent url(./images/bg_armes.png) center 180px no-repeat;
+}
+#wrapperapp.cadres {
+	position: relative;
+	height: 100%;
+	background: transparent url(./images/bg_cadres.png) center 180px no-repeat;
+}
+
+
+
+header {
+	position : absolute;
+	top: 40px;
+}
+nav {
+	position: relative;
+	top: 306px;
+	height: 56px;
+	padding: 28px 0; /* 112px; */
+	
+	color: #fff;
+	background-image: url(./images/bg_nav.png);
+	background-repeat: no-repeat;
+	background-position: center 0;
+	background-attachement: fixed;
+}
+	nav a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	nav ul {
+		display: block;
+		list-style-type: none;
+		height: 56px;
+		overflow: hidden;
+		background: #ee3d26;
+	}
+	
+	
+	nav ul li, nav ul li a {
+display:block;
+float:left;
+height:37px;
+line-height:56px;
+padding-bottom:2px;
+}
+
+
+	
+	
+nav ul li {
+background:url("./images/nav-sep.png") no-repeat scroll right 20px transparent;
+margin:0 2px 5px 0;
+padding-right:8px;
+}
+	nav ul li.first {
+margin:0 2px 0 14px;
+padding-right:9px;
+}
+	nav ul li.last{
+margin:0 5px 8px 0;
+	background:none;
+	}
+	
+nav ul li.social{
+	margin:0;
+	background:none;
+	}	
+	
+	
+
+
+nav ul li a {
+margin:0 9px;
+
+}
+
+
+
+section {
+height:255px;
+padding:0 5px;
+position:relative;
+top:0px;
+width:10px;
+}
+
+.overflower {
+background-color: #EE3D26;
+background-image: url("./images/bg_section.jpg");
+background-repeat: no-repeat;
+background-position: left top;
+
+overflow-y:hidden;
+overflow-x:hidden;
+height:255px;
+position:absolute;
+top:390px;
+}
+
+
+
+
+	section article {
+display:block;
+float:left;
+margin-right:16px;
+padding:0 0;
+width:290px;
+}
+	section article hgroup {
+		padding-left: 25px;
+		margin-top: 15px;
+		float:left; /*tom*/
+		width:269px;
+	}
+		section article hgroup#cA { background: transparent url(./images/circulaire_a.gif) left center no-repeat; }
+		section article hgroup#cB { background: transparent url(./images/circulaire_b.gif) left center no-repeat; }
+		section article hgroup#cC { background: transparent url(./images/circulaire_c.gif) left center no-repeat; }
+		section article hgroup#cD { background: transparent url(./images/circulaire_d.gif) left center no-repeat; }
+		section article hgroup#cE { background: transparent url(./images/circulaire_e.gif) left center no-repeat; }
+		section article hgroup#cF { background: transparent url(./images/circulaire_f.gif) left center no-repeat; }
+		section article hgroup#cG { background: transparent url(./images/circulaire_g.gif) left center no-repeat; }
+		section article hgroup#cG { background: transparent url(./images/circulaire_h.gif) left center no-repeat; }
+		section article hgroup#cI { background: transparent url(./images/circulaire_i.gif) left center no-repeat; }
+		
+		
+		
+.radios{padding-left:5px; padding-top:31px;width:16px;}
+.radio-0 {background:url("./images/circulaire_a.gif") no-repeat scroll 3px top transparent;}
+
+	.radio-1 { background: transparent url(./images/circulaire_b.gif) 3px top no-repeat; }
+	.radio-2{ background: transparent url(./images/circulaire_c.gif) 3px top no-repeat; }
+	.radio-3 { background: transparent url(./images/circulaire_d.gif) 3px top no-repeat; }
+	.radio-5 { background: transparent url(./images/circulaire_f.gif) 3px top no-repeat; }
+	.radio-6 { background: transparent url(./images/circulaire_g.gif) 3px top no-repeat; }
+.radio-7 { background: transparent url(./images/circulaire_h.gif) 3px top no-repeat; }
+	.radio-8 { background: transparent url(./images/circulaire_i.gif) 3px top no-repeat; }
+	
+section article hgroup h3 {
+display:block;
+float:left;
+font-size:14px;
+height:30px;
+line-height:14px;
+margin-right:9px;
+padding-top:19px;
+text-align:left;
+width:174px;
+}
+section article hgroup a {
+color:#FFFFFF;
+display:block;
+float:left;
+font-size:0.6em;
+list-style:disc outside none;
+margin-left:0;
+margin-top:1px;
+padding-left:0;
+padding-top:11px;
+}
+section article hgroup a.close {
+background:url("./images/close.png") no-repeat scroll 0 19px transparent;
+display:block;
+float:right;
+height:25px;
+margin-right:0;
+margin-top:1px;
+padding-left:5px;
+width:11px;
+}
+	section article h4 {
+		font-size: 11px;
+		font-weight: bold;
+		border-top: 1px solid #000;
+	}
+section article p {
+font-size:14px;
+line-height:18px;
+min-height:140px;
+}
+	section article p.firstp {
+		font-weight: bold;
+	}
+
+
+/*	13-column layout
+	60 px columns, 24 px gutters, 72 px margins, 1212 px total (extra space for scrollbars)
+	---------------------------------------------------------------------------------------
+	1     2      3      4      5      6      7      8      9      10     11     12     13
+	60px  144px  228px  312px  396px  480px  564px  648px  732px  816px  900px  984px  1068px	*/
+
+
+/*	Overrides for iPhone 4 
+	and other high device-pixel-ratio devices
+	-----------------------------------------	*/
+
+@media 
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) {
+	
+	#app {
+	}
+	
+}
+
+
+
+
+
+
+/*tom*/
+input{left:-9999px; position:absolute;}
+.radios{float:left;position:absolute;}
+.radio-0{left:16px;}
+.radio-1{left:444px;}
+.radio-2{left:469px;}
+.radio-3{left:581px;}
+.radio-5{left:732px;}
+.radio-6{left:800px;}
+.radio-7 {left:848px;}
+.radio-8 {left:877px;}
+
+
+
+.radio-4 {
+left:632px;
+padding-left:41px;
+}
+
+.radio-4 {
+background:url("./images/e-label.png") no-repeat scroll 3px top transparent;
+width:53px;
+}
+
+.radio-5 {
+background:url("./images/f-label.png") no-repeat scroll 3px top transparent;
+width:43px;
+}
+
+
+
+
+
+
+
+
+			
+			.ui-radio-state-disabled,
+			.ui-radio-state-checked-disabled,
+			.ui-radio-state-disabled-hover,
+			.ui-radio-state-checked-disabled-hover {
+							background: url(./images/radio-unchecked.png) 0 0px no-repeat;
+
+				color: #999;
+			}
+			span.ui-checkbox,
+			span.ui-radio {
+				display: block;
+				float: left;
+				width: 13px;
+				height: 13px;
+				background: url(./images/radio-unchecked.png) 0 0px no-repeat;
+			}
+			
+			span.ui-helper-hidden {
+				display: none;
+			}
+			label {
+				padding: 2px;
+				
+			}
+			span.ui-radio-state-hover,
+			span.ui-checkbox-state-hover {
+				background-position: 0px;
+				background: url(./images/radio-checked.png) 0 0px no-repeat;
+
+			}
+			
+			span.ui-checkbox-state-checked {
+				background: url(./images/radio-checked.png) 0 0px no-repeat;
+			}
+			
+			span.ui-checkbox-state-checked-hover {
+				background-position: 0px;
+				background: url(./images/radio-checked.png) 0 0px no-repeat;
+
+			}
+			span.ui-radio-state-checked-disabled-hover,
+			span.ui-radio-state-checked-disabled,
+			span.ui-radio-state-checked {
+				background-position: 0px;
+				background: url(./images/radio-checked.png) 0 0px no-repeat;
+
+			}
+			
+			
+			span.ui-radio-state-checked-hover {
+				background-position: 0px;
+			}
+			
+					
+.cover {
+background:url("./images/cover1.jpg") no-repeat scroll -18px 0 transparent;
+height:667px;
+left:0;
+position:absolute;
+top:0;
+width:950px !important;
+z-index:99999;
+}			
+.cover a {
+display:block;
+float:left;
+height:667px;
+text-indent:-9999px;
+width:950px;
+}
+section article.toogles{display:none;}
+section article.toogles.visible{display:block;}
+nav a.active {border-bottom:2px solid #FFFFFF;float:left;display:block;}
+.bulle{display:none; }
+.bulle.show{position:absolute;color:#fff; display:block;}	
+#credits {background:#EE3D26;display:block;float:left;margin-left:20px;position:relative;top:420px;width:930px;height:200px;overflow-y:scroll;}
+#credits p {line-height:16px;margin:8px 0; font-size:13px;}
+#credits h3 {border-top:1px solid #000000;font-size:12px;line-height:14px;margin-bottom:20px;margin-top:20px;padding-top:2px;}
+#credits-left h4 {
+font-size:12px;
+line-height:14px;
+margin-bottom:5px;
+margin-top:20px;
+padding-top:2px;
+}
+#credits-right h4 {
+font-size:12px;
+line-height:14px;
+padding-top:2px;
+}
+
+
+
+
+#credits-left {display:block;float:left;margin-left:0;margin-right:30px;width:580px;}
+#credits-right {display:block;float:left;width:290px;border-top:1px solid #000;}
+#credits-right span{margin-top:30px; float:left;}
+#credits-right .links a {float:left;}
+#credits-right p {font-weight:bold;}
+
+a.davduf, a.upian {margin-right:25px;margin-top:15px;} 
+
+
+#credits-left p{font-size:13px;}
+#credits-left ul, #credits-left ul li{font-size:13px;list-style:inside disc;line-height:16px;}
+
+
+    .share { position:relative; top:0px; float:right; }
+    
+    .share .inputEmbed span {
+        color:white;
+        font-weight:bold;
+        text-decoration:underline;
+        cursor:pointer;
+        width: 200px;
+        float: left;
+        display: block;
+    }
+
+    .share a, .share .frame{
+       font-size:12px;
+       color:gray;
+       text-decoration:none;
+       float:right;
+       margin-right:5px;
+    }
+
+    .share .bg-white {
+        padding:1px 2px;
+        padding-bottom:0px;
+        height:17px;
+        border-radius:3px;
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+    }
+
+    .share a img{
+       border:0px;
+       margin:0px;
+       padding:0px;
+    }
+
+
+
+
+

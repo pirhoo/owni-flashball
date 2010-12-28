@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		
+		<style>
+		section article.toogles{display:none;}
+		section article.toogles.visible{display:block;}
+	nav a.active{text-decoration:underline;}
+	.bulle{display:none; }
+	.bulle.show{position:absolute;
+background:none repeat scroll 0 0 #000000;
+height:27px;
+float:left;
+top:21px;
+width:130px;
+padding:5px;
+display:block;
+color:#fff;}
+	
+		</style>
+		<title>sdfqsdf</title>
+	
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link rel="stylesheet" media="all" href="css_less.css"/>
+		<meta name="viewport" content="width=device-width; initial-scale=1"/>
+		<!-- Add "maximum-scale=1" to fix the weird iOS auto-zoom bug on orientation changes. -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+		<!--
+		<script type="text/javascript" src="ui.core.js"></script>
+		<script type="text/javascript" src="jquery.usermode.js"></script>
+		<script type="text/javascript" src="jquery.bind.js"></script>
+		<script type="text/javascript" src="ui.checkbox.js"></script>
+!-->
+
+		
+		<script type="text/javascript">
+			$('document').ready(function(){ 
+		alert("Option changed!");
+		
+});
+
+
+function show_single_post(id,tab){
+$.ajax({
+url: 'flashball.json',
+   success: function(data) {
+	//var po = data.posts;
+	var thispost = data.posts[id];
+	if( (tab=='cir') ){ class1 = 'visible'; class2 = 'hidden'; class3 = 'hidden';}
+	else if( tab=='cadre'){ class1 = 'hidden'; class2 = 'visible'; class3 = 'hidden';}
+	else if( tab=='armes'){ class1 = 'hidden'; class2 = 'hidden'; class3 = 'visible';}
+	else {class1 = 'hidden'; class2 = 'hidden'; class3 = 'visible';}
+	 $("section").append("<article class='article-"+ thispost.id +" toogles cir-inside " + class1 + "'><hgroup id='c" + thispost.letter + "'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Circulaire:</h4><p class='firstp'>" + thispost.title + "</p><br /><h4>Signataires:</h4><p>" + thispost.signataires + "</p><br /><h4>Destinataires:</h4><p>" + thispost.destinataires + "</p><br /></aside></article>");
+	 $("section").append("<article class='article-"+ thispost.id +" toogles cadre-inside " + class2 + "' ><hgroup id='cb'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Cadre d'intervention prévue:</h4><p class='firstp'>" + thispost.intervention + "</p></aside></article>");
+	 $("section").append("<article class='article-"+ thispost.id +" toogles armes-inside " + class3 + "' ><hgroup id='ci'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Arme:</h4><p class='firstp'>" + thispost.arme + "</p><br /><h4>Semantique:</h4><p>" + thispost.semantique + "</p></aside></article>");
+   
+   }
+   
+ }).responseText;
+}
+	//$('input').checkBox();
+
+
+
+
+
+</script>
+</head>
+<body>
+<div id="app">
+	<div id="wrapperapp">
+				<header>
+				<span class="radio-0 radios"><input type="radio"  name="Circulaire 25 juillet 1995" value="0" /></span>	
+				<span class="radio-1 radios"><input type="radio"  name="Note de service 17 octobre 2002" value="1" /></span>	
+				<span class="radio-2 radios"><input type="radio" name="21 janvier 2003" value="2" /></span>	
+				<span class="radio-3 radios"><input type="radio" name="6 janvier 2005" value="3" /></span>	
+				<span class="radio-4 radios"><input type="radio" name="Non daté, +/- 2006" value="4" /></span>	
+				<span class="radio-5 radios"><input type="radio" name="Non daté, +/- 2007" value="5" /></span>	
+				<span class="radio-6 radios"><input type="radio" name="6 novembre 2008" value="6" /></span>	
+				<span class="radio-7 radios"><input type="radio"  name="31 août 2009" value="7" /></span>	
+				<span class="radio-8 radios"><input type="radio"  name="29 décembre 2009" value="8" /></span>	
+				</header>
+				<nav>
+					<ul>
+						<li><a class="active" rel="cir">Les circulaires</a></li>
+						<li ><a class="" rel="cadre">Les cadres d'intervention</a></li>
+						<li><a class="" rel="armes">Les armes employées</a></li>
+						<li>En savoir plus</li>
+						
+					</ul>
+				</nav>
+				<section>
+				
+				</section>	
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

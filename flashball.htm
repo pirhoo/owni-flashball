@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>-widget</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
+	<meta http-equiv="content-language" content="en" />
+	<style type="text/css">
+body{
+width:580px;
+margin:100px auto;
+	font-family:verdana;
+}
+a{color:#000; padding:5px; text-decoration:none;}
+
+	
+	#postslist{
+	border:1px solid #000;
+	float:left;
+	}
+	.post{
+	margin-top:20px;
+	background-repeat:no-repeat;
+	background-position:0 0;
+	height:300px;
+	width:300px;
+	float:left;
+		border:3px solid #fff;
+		
+
+	}
+	.post h2{
+	background:#000;
+	color:#fff;
+	padding:5px;
+	}
+	.excerpt{
+	background:#000;
+	font-family:Georgia, serif;
+	color:#fff;
+	padding:5px;
+	}
+	
+	
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+$('document').ready(function(){ 
+	/*le doc est vide, on charge les plus recentspour remplir  le "ul" */
+	recents = $.getJSON('flashball.json',parse_recents);
+	/*Fonction live, qui charge le bon post, selon son attr.rel meme sur les "li" ajoutés a la volée */
+	$('.#postslist a').live('click', function() {
+	var id = $(this).attr('rel');
+	$('#info').fadeOut(1000);
+	show_single_post(id);
+	});
+});
+
+function sortNumber(a,b)
+{
+return b - a;
+}
+
+
+	function show_single_post(id){
+	$.getJSON('flashball.json', function(data) {
+	postdata = data.posts;
+	//alert(id);
+	thispost = postdata[id];
+	
+	/*qui est deja là ? */
+	
+	var dedans_1 = $(".inside-1 h1 a").attr('rel');
+	var dedans_2 = $(".inside-2 h1 a").attr('rel');
+	var dedans_3 = $(".inside-3 h1 a").attr('rel');
+	
+	
+	if((thispost.id == dedans_1) || (thispost.id == dedans_2) || (thispost.id == dedans_3)) {}
+	else {
+	// donc il faut reordonner
+	//alert('re sorting..');
+	var myarray = [dedans_1, dedans_2, dedans_3];
+	myarray.sort(sortNumber);
+	//alert('source : '+ myarray);
+
+	$('#inside').empty();
+	
+		if(thispost.id < dedans_1) {
+		narray = [thispost.id,dedans_1, dedans_2];
+		$('#inside').append('<div class="inside-1"><h1><a rel="'+ thispost.id +'">'+ thispost.title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-2"><h1><a rel="'+ dedans_1 +'">'+ postdata[dedans_1].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-3"><h1><a rel="'+ dedans_2 +'">'+ postdata[dedans_2].title +'</a></h1></div>');
+
+		}
+		if((thispost.id > dedans_1) && (thispost.id < dedans_2) ) {
+		narray = [dedans_1,thispost.id,dedans_2];
+		$('#inside').append('<div class="inside-1"><h1><a rel="'+ dedans_1 +'">'+ postdata[dedans_1].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-2"><h1><a rel="'+ thispost.id +'">'+ thispost.title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-3"><h1><a rel="'+ dedans_2 +'">'+ postdata[dedans_2].title +'</a></h1></div>');
+		}
+		
+		if((thispost.id > dedans_2) && (thispost.id < dedans_3) ) {
+		narray = [dedans_1,dedans_2,thispost.id];
+		$('#inside').append('<div class="inside-1"><h1><a rel="'+ dedans_1 +'">'+ postdata[dedans_1].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-2"><h1><a rel="'+ dedans_2 +'">'+ postdata[dedans_2].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-3"><h1><a rel="'+ thispost.id +'">'+ thispost.title +'</a></h1></div>');
+
+		}
+		if((thispost.id > dedans_3) ) {
+		narray = [dedans_2,dedans_3,thispost.id];
+		$('#inside').append('<div class="inside-1"><h1><a rel="'+ dedans_2 +'">'+ postdata[dedans_2].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-2"><h1><a rel="'+ dedans_3 +'">'+ postdata[dedans_3].title +'</a></h1></div>');
+		$('#inside').append('<div class="inside-3"><h1><a rel="'+ thispost.id +'">'+ thispost.title +'</a></h1></div>');
+		}
+	
+		
+	
+		
+		
+		
+
+	
+	//alert('fin : '+ narray);
+	
+
+	
+	
+	
+	
+	
+	
+/*	
+
+	
+	post_1 = myarray[0];
+	post_2 = myarray[1];
+	post_3 = myarray[2];
+		
+	thispost_1 = postdata[post_1];
+	thispost_2 = postdata[post_2];
+	thispost_3 = postdata[post_3];
+	*/
+	//alert(myarray);
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	}
+	
+	});
+	}
+	
+	function parse_recents(data)
+	{
+	count_recents = data.count;
+	//alert(count_recents);
+	postdata = data.posts;
+	var i=0;
+	var id;
+	for (i=0;i<=count_recents;i++)
+		{
+		//alert(i);
+		thispost = postdata[i];
+		/*et on inject*/
+		$('#postslist').append('<li><a  rel="'+ thispost.id +'" id="post-'+ thispost.id +'" href="#'+ thispost.title +'">'+ thispost.title +'</a></li>');
+		}
+	}
+</script>
+</head>
+<body>
+<ul id="postslist">
+<!-- <li><a rel="37" href="#post-title">post title 37</a></li> !-->
+</ul>
+<div id="inside">
+	<div class="inside-1"><h1><a rel="0">a</a></h1></div>
+	<div class="inside-2"><h1><a rel="1">b</a></h1></div>
+	<div class="inside-3"><h1><a rel="2">c</a></h1></div>
+</div>
+</body>
+</html>

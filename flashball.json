@@ -1,0 +1,132 @@
+{
+  "posts": [
+	{
+		"id": "0",
+		"letter":		"A",
+		"date":		"Circulaire 25 juillet 1995",
+		"title":		"« Acquisition et utilisation du flashball »",
+		"signataires":	"Claude Guéant, directeur de la police national",
+		"destinataires":	"Brigade anti-criminalité, Groupe d'Intervention Police Nationale (G.I.P.N.), Brigade de Recherches et Intervention (B.R.I.), Brigade Régionale D'enquête et de Coordination (B.R.E.C.)",
+		"justification":	"« Afin de lutter plus efficacement contre les nouvelles formes de criminalité »",
+		"intervention":	"cas extrêmes comme «menaces par armes blanches, rixe sur la voie publique, pare-chocage de véhicules administratif, franchissement de barrage routier »",
+		"restriction":	"« N'utiliser le flashball que dans le cadre strict de la légitime défense. En effet, les essais effectués ont démontré que cette arme ne pouvait être qualifié de non létale, en raison de lésions graves qu'elle est susceptible d'occasionner en certaines circonstances »",
+		"arme":		"LBD Flash Ball SuperPro. Portée: 30 mètres, portée opérationnelle : 7 à 10 mètres. Arme de catégorie 4 (arme de poing, fusil à pompe).",
+		"semantique":	"« fusil flashball »",
+		"pdf": "A-circulaire-25juillet1995.pdf"
+	},
+	{
+		"id": "1",
+		"letter":		"B",
+		"date":		"Note de service 17 octobre 2002",
+		"title":		"« Utilisation du lanceur de balles de défense par les policiers de la Sécurité publique dans les quartiers difficiles »",
+		"signataires":	"Alain Fontaine, le directeur central de la Sécurité publique",
+		"destinataires":	"Services de la Sécurité publique",
+		"justification":	"« La répétition d'actes de violence délibérés à l'encontre des fonctionnaires de la Police nationale servant dans les quartiers difficiles nécessite une meilleure prise en compte de leur protection individuelle »",
+		"intervention":	"« Le ministre de l'Intérieur a décidé de doter, à titre expérimental, les policiers affectés dans les quartiers difficiles du lanceur de balles de défense »",
+		"restriction":	"« Usage limité au seul cadre de la légitime défense de soi-même ou d'autrui» (...) «Respect d'une distance minimal de tir de sept mètres afin d'éviter tout risque de lésion corporelle (au visage notamment) qui pourrait survenir en deça »",
+		"arme":		"Non précisé",
+		"semantique":	"« Une arme qui, pour ne pas être létale, n'en obéit pas moins à une procédure d'emploi stricte »",
+		"pdf": "B-notedeservice-17octobre2002.pdf"
+	},
+	{
+		"id": "2",
+		"letter":		"C",
+		"date":		"21 janvier 2003",
+		"title":		"« Amélioration de l'action des services de police dans la lutte contre les violences urbaines »",
+		"signataires":	"Nicolas Sarkozy, ministre de l'Intérieur",
+		"destinataires":	"Services de la Sécurité publique",
+		"justification":	"« Je tiens (...) à ce que vous demeuriez particulièrement vigilant à l'évolution inquiétante du phénomène des violences urbaines. Les événements qui se sont déroulés à l'occasion des fêtes de fin d'année (...) nous rappellent que beaucoup trop de nos concitoyens subissent encore les exactions inacceptables de quelques individus qui n'hésitent pas à défier ouvertement l'autorité de l'Etat et des forces de l'ordre »",
+		"intervention":	"« J'ai décidé (...) de généraliser la stratégie d'action déjà entreprise par les services de police et de gendarmerie (...) dans le renforcement de la lutte contre les violences urbaines ».",
+		"restriction":	"« Contrôler l'usage de l'armement collectif et n'y recourir que dans les cas prévus par la loi, dans le double souci d'adapter la riposte au degré de la menace et d'éviter aux personnels la tentation d'utiliser d'autres moyens en dehors de leur destination normale (usage du flashball pour disperser un groupe alors que cet armement vise seulement la protection des fonctionnaires dans le cadre de la légitime défense) ».",
+		"arme":		"Flash Ball",
+		"semantique":	"",
+		"pdf": "C-notedeservice-21janvier2003.pdf"
+	},
+	{
+		"id": "3",
+		"letter":		"D",
+		"date":		"6 janvier 2005",
+		"title":		"«Utilisation du lanceur de balle de défense»",
+		"signataires":	"Alain Fontaine, le directeur central de la Sécurité publique",
+		"destinataires":	"Services de la Sécurité publique",
+		"justification":	"Rappel de la note du 17 octobre 2002",
+		"intervention":	"« Vous voudrez bien donner instructions aux effectifs placés sous votre autorité de prohiber les tirs d'interception dont les causes imprévisibles peuvent amener les fonctionnaires à faire l'objet de poursuites pénales et de procédures administratives »",
+		"restriction":	"« Plusieurs affaires récentes mettent en exergue une utilisation inappropriée du lanceur de balle de défense (flashball), dans des conditions éloignées de celles que précise la note du 17 octobre 2002. L'emploi de cette arme à l'encontre de véhicules en fuite dans un but d'interception n'obéit pas aux critères stricts de la légitime défense et, à ce titre, ne saurait être toléré »",
+		"arme":		"Flash Ball",
+		"semantique":	"",
+		"pdf": "D-noteservice-6janv2005.pdf"
+	},
+	{
+		"id": "4",
+		"letter":		"E",
+		"date":		"Non daté, +/- 2006",
+		"title":		"Procédure d'évaluation du LBD 40x46",
+		"signataires":	"Bureau de l'armement et des matériels techniques de la Police Nationale",
+		"destinataires":	"Directions départementales de la Sécurité publique (100 lanceurs), 26 Compagnies Républicaines de Sécurité (C.R.S.), Direction de la police urbaine de proximité (5 lanceurs pour les Compagnies de sécurisation et 5 pour les B.A.C. de nuit), et la Direction de l'Ordre public et de la Circulation (Préfecture de Police de Paris, 9 lanceurs).",
+		"justification":	"Une « phase expérimentale engagée en partenariat avec les industriels afin de confirmer l'existence d'une adéquation entre les caractéristiques techniques du produit et les besoins des services de police »",
+		"intervention":	"« Par la suite, l'emploi du lanceur continuera à être évalué, notamment grâce à l'application nationale de suivi de l'usage des armes. Les informations systématiquement collectées seront utilisées afin, si cela nécessaire, de mettre à jour la doctrine d'emploi et les programmes de formation »",
+		"restriction":	"« Les personnels retenus sont sélectionnés par la hiérarchie locale (...) Le choix a reposé sur la maîtrise préalable d'un lanceur de balles: ce qui signifie une mise en œuvre faite avec discernement, n'ayant pas nécessairement entraîné un usage effectif »",
+		"arme":		"Lanceur de Balle de Défense 40 x 46. Portée: 60 mètres, portée opérationnelle: 10 à 30 mètres. Arme de catégorie 1.",
+		"semantique":	"« lanceur sub-létal »",
+		"pdf": "E-procedureevaluation-nondate2006.pdf"
+	},
+	{
+		"id": "5",
+		"letter":		"F",
+		"date":		"Non daté, +/- 2007",
+		"title":		"Instruction d'emploi du lanceur de balle de défense 40x46",
+		"signataires":	"Bureau de l'armement et des matériels techniques de la Police Nationale",
+		"destinataires":	"Non précisé",
+		"justification":	"« Dans le cadre des différentes missions de police, force est de constater que les atteintes envers les forces de l'ordre n'ont cessé d'évoluer (en niveau de menaces) et se multiplier sans que le policier ait le moyen approprié d'y faire face »",
+		"intervention":	"« L'emploi de cette arme doit s'inscrire principalement dans le cadre de la légitime défense. Toutefois, l'emploi de cette arme, qui doit rester en tout état de cause strictement nécessaire et proportionné, soit en cas de crime ou de flagrant délit, dans le cadre de l'état de nécessité ou pour réduire une résistance manifeste à l'intervention légale du policier »",
+		"restriction":	"« Les zones de tir à privilégier sont: le buste, les membres supérieurs et inférieurs» [...] «Dans tous les cas, agir toujours avec le plus grand discernement ceci de façon proportionnelle aux violences subies »",
+		"arme":		"Lanceur 40x46 Exact Impact de marque Brugger & Thomet. Portée: 60 mètres, portée opérationnelle : 10 à 30 mètres. Arme de catégorie 1.",
+		"semantique":	"« arme à létalité réduite »",
+		"pdf": "F-instructionsLBD-nondate2007.pdf"
+	},
+	{
+		"id": "6",
+		"letter":		"G",
+		"date":		"6 novembre 2008",
+		"title":		"Instruction d'emploi du Lanceur de balles de Défense (LBD) de calibre 40x46",
+		"signataires":	"Frédéric Pechenard, Directeur général de la police Nationale",
+		"destinataires":	"Non précisé",
+		"justification":	"« Des lanceurs de défense de type Flash Ball ont progressivement été déployées dans les services de police. Ces équipements ont démontré leur efficacité.Mais les phénomènes de violence auxquels sont confrontées les forces de l'ordre ont évolué (...) Dans ce cadre, le lanceur de balles de défense 40x46 est un nouveau moyen de force intermédiaire »",
+		"intervention":	"« Prioritairement dans une situation de légitime défense (...) En dehors de cette hypothèse principale, l'emploi de ce lanceur (...) peut également être envisagé dans le cadre de l'état de nécessité ou dans le cadre des disposition du code pénal sur l'attroupement »",
+		"restriction":	"« Son emploi doit toujours être nécessaire, s'inscrire dans le cadre d'une riposte ou d'une action proportionnée et être réalisé avec discernement ». « Sauf circonstance de légitime défense, il ne doit pas être utilisé lorsque la personne visée se trouve à une distance de moins de dix mètres ». «Sous la même réserve, le tir avec visée au dessus de la ligne des épaules ou dans la région du triangle génital doit être proscrit ». « Le lanceur ne peut être utilisé à l'encontre du conducteur d'un véhicule en mouvement, notamment pour le contraindre à l'arrêt, en raison des graves dommages pouvant résulter d'une perte de contrôle de celui-ci. Cette interdiction concerne tous les véhicules ».",
+		"arme":		"Lanceur 40x46 Exact Impact de marque Brugger & Thomet. Portée: «Le 40x46 permet de neutraliser de manière temporaire et avec précision un individu se situant dans un intervalle de distance compris entre 10 et 50 mètres».. Arme de catégorie 1.",
+		"semantique":	"« Ce nouveau moyen de force intermédiaire met en œuvre l'énergie cinétique d'un projectile à effet lésionnel réduit »",
+		"pdf": "G-notedeservice-6novembre2008.pdf"
+
+	},
+	{
+		"id": "7",
+		"letter":		"H",
+		"date":		"31 août 2009",
+		"title":		"Instruction relative à l'emploi du Lanceur de balles de Défense (LBD) de calibre 40x46, version modifiée",
+		"signataires":	"Frédéric Pechenard, Directeur général de la police Nationale",
+		"destinataires":	"Préfet de Police, Directeur central du renseignement intérieur, Directeur central des compagnies républicaines de sécurité, chef de l'inspection général des services, directeur de la formation de la police nationale, Directeur central de la police judiciaire, Directeur central de la Sécurité publique, Directeur central de la police aux frontières, le Chef du service de coopération technique internationale de police, le Chef du service de protection des hautes personnalités, le Chef du service de sécurité du ministère de l'intérieur, le Chef de l'unité de recherche, d'assistance, d'intervention et de dissuasion.",
+		"justification":	"« Des lanceurs de défense de type Flash Ball ont progressivement été déployées dans les services de police. Ces équipements ont démontré leur efficacité.Mais les phénomènes de violence auxquels sont confrontées les forces de l'ordre ont évolué (...) Dans ce cadre, le lanceur de balles de défense 40x46 est un nouveau moyen de force intermédiaire »",
+		"intervention":	"« Son usage est légitime lorsqu'il est strictement nécessaire et proportionné. Il en est ainsi lorsque le fonctionnaire de police se trouve dans une situation de légitime défense (...) En dehors de cette hypothèse principale, l'emploi de ce lanceur peut également être envisagé, dès lors qu'il reste strictement nécessaire et proportionné, dans le cadre de l'état de nécessité, dans le cadre des dispositions du code pénal concernant le délit d'attroupement, ans le cadre des dispositions du code de procédure pénale concernant les interventions dans les établissements pénitentiaires »",
+		"restriction":	"« Le lanceur de balles de défense 40x46 est un moyen de force intermédiaire destiné à permettre une réponse adaptée et proportionnée, dans le cadre des lois, des règlements et du code de déontologie de la police nationale. Sous le contrôle permanent de la hiérarchie, son emploi doit toujours être nécessaire et s'inscrire dans le cadre d'une riposte ou d'une action proportionnée et être réalisé avec discernement» (...) Interdiction d'utilisation contre «tous les types de véhicules [en mouvement], y compris les deux roues»  (...) «Lorsque les personnels interviennent en unité constituée dans le cadre du maintien de l'ordre, le déploiement et l'usage du lanceur de balles de défense ne pourront intervenir que sur le commandement exprès du chef d'unité, après autorisation par l'autorité civile de l'usage de la force ».",
+		"arme":		"Lanceur 40x46 Exact Impact de marque Brugger & Thomet. «Il prend sa place parmi les autres lanceurs de balles de défense («Flashball» et Cougar) dont il doit cependant être distingué». Arme de catégorie 1.",
+		"semantique":	"« Ce nouveau moyen de force intermédiaire met en œuvre l'énergie cinétique d'un projectile à effet lésionnel réduit »",
+		"pdf": "H-notedeservice-31aout2009.pdf"
+
+	},
+	{
+		"id": "8",
+		"letter":		"I",
+		"date":		"29 décembre 2009",
+		"title":		"« Nouvelle doctrine d'emploi du Lanceur de Balles de Défense 40 x 46 mm »",
+		"signataires":	"François Mainsard, Directeur départemental de la Sécurité Publique de la Loire Atlantique",
+		"destinataires":	"Services de la Sécurité publique",
+		"justification":	"« Des lanceurs de défense de type Flash Ball ont progressivement été déployées dans les services de police. Ces équipements ont démontré leur efficacité.Mais les phénomènes de violence auxquels sont confrontées les forces de l'ordre ont évolué (...) Dans ce cadre, le lanceur de balles de défense 40x46 est un nouveau moyen de force intermédiaire permettant une riposte ciblée et efficace à moyenne distance »",
+		"intervention":	"« Son emploi doit toujours être nécessaire, s'inscrire dans le cadre d'une riposte ou d'une action proportionnée et être réalisé avec discernement »",
+		"restriction":	"« Les règles liées à la légitime défense de soi-même ou d'autrui imposent prioritairement une utilisation défensive pour répondre à une agression physique ou à un comportement dangereux ou menaçant qui ne justifierait pas le recours à des moyens de neutralisation plus importants »",
+		"arme":		"Lanceur 40x46 Exact Impact de marque Brugger & Thomet. «Il prend sa place parmi les autres lanceurs de balles de défense («Flash Ball» et Cougar) dont il doit cependant être distingué». Arme de catégorie 1.",
+		"semantique":	"« Un nouveau moyen de force intermédiaire  permettant une riposte ciblée et efficace à moyenne distance »",
+		"pdf": "I-notedeservice-29decembre2009.pdf"
+	}
+	]	
+}

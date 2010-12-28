@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		
+		<style>
+		section article.toogles{display:none;}
+		section article.toogles.visible{display:block;}
+	nav a.active{text-decoration:underline;}
+	.bulle{display:none; }
+	
+	.bulle.show{
+position:absolute;
+color:#fff;}
+	
+		</style>
+		<title>sdfqsdf</title>
+		
+	
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link rel="stylesheet" media="all" href="css_less.css"/>
+		<meta name="viewport" content="width=device-width; initial-scale=1"/>
+		<!-- Add "maximum-scale=1" to fix the weird iOS auto-zoom bug on orientation changes. -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script type="text/javascript" src="ui.core.js"></script>
+		<script type="text/javascript" src="jquery.usermode.js"></script>
+		<script type="text/javascript" src="jquery.bind.js"></script>
+		<script type="text/javascript" src="ui.checkbox.js"></script>
+		<script type="text/javascript">
+		$('document').ready(function(){ 
+		$('input').checkBox();
+		$('input').attr('checked', false);
+		
+	
+		
+		
+				$("input").change(function (){
+					var id = $(this).attr('value');
+					//$(this).attr('checked',true);
+					var tab = $("nav").find('a.active').attr('rel');
+					if(!tab){tab = 'cir';}
+					$('.toogles').removeClass('visible');
+					$("." + tab + "-inside").addClass('visible');
+					show_single_post(id,tab);
+		
+				});
+				$(".close").live('click', function() {
+					var id = $(this).attr('rel');
+					$('.radio-'+id+' span').removeClass('ui-radio-state-checked');
+					$('input[name='+id +']').attr('checked', false);
+					$(".article-"+id).remove();
+					
+				});
+				$(".ui-radio").hover(function (){
+				var my_text = $(this).parent().attr('name');
+				var left = $(this).css('left');
+				//alert($(this).attr('value'));
+				if(($(this).attr('value')) == '0'){
+				left = left.replace("px", "") - 30;
+				}
+				else {
+				left = left.replace("px", "") - 30;
+				}
+				
+				content  = '<span class="bullet bulletInfo bulle show" style="top:50px; left:-18px"><span class="arrow"></span><span class="cleft"></span>';
+                content += my_text;
+                content += '<span class="cright"></span></span>';
+				$(this).after(content);
+				},
+				function () {
+				$(".bulle").remove();
+				}				
+				);
+				
+				$("nav a").live('click', function() {
+					var id = $(this).attr('rel');
+					if(id=='cir') {
+						$(".cir-inside").addClass('visible');
+					}
+					$("nav a").removeClass('active');
+					$(this).addClass('active');
+					$('.toogles').removeClass('visible');
+					$("." + id + "-inside").addClass('visible');
+					$("#wrapperapp").css("background-image","url('http://hum-gum.com/getjson/images/bg_"+ id +".png')");
+				});
+					show_single_post(0,'cir');
+					show_single_post(1,'cir');
+					show_single_post(2,'cir');
+function show_single_post(id,tab){
+var poi = $.ajax({
+url:'flashball.json',
+cache: false,
+async: false,
+success: function(data){
+	var po = data.posts;
+	var thispost = po[id];
+	if( (tab=='cir') ){ class1 = 'visible'; class2 = 'hidden'; class3 = 'hidden';}
+	else if( tab=='cadre'){ class1 = 'hidden'; class2 = 'visible'; class3 = 'hidden';}
+	else if( tab=='armes'){ class1 = 'hidden'; class2 = 'hidden'; class3 = 'visible';}
+	else {class1 = 'hidden'; class2 = 'hidden'; class3 = 'visible';}
+	$("section").append("<article class='article-"+ thispost.id +" toogles cir-inside " + class1 + "'><hgroup id='c" + thispost.letter + "'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Circulaire:</h4><p class='firstp'>" + thispost.title + "</p><br /><h4>Signataires:</h4><p>" + thispost.signataires + "</p><br /><h4>Destinataires:</h4><p>" + thispost.destinataires + "</p><br /></aside></article>");
+	 $("section").append("<article class='article-"+ thispost.id +" toogles cadre-inside " + class2 + "' ><hgroup id='cb'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Cadre d'intervention prévue:</h4><p class='firstp'>" + thispost.intervention + "</p></aside></article>");
+	 $("section").append("<article class='article-"+ thispost.id +" toogles armes-inside " + class3 + "' ><hgroup id='ci'><h3 style='overflow: hidden;'>" + thispost.date + "</h3><a href='#'>Télécharger</a><a class='close' rel=" + thispost.id + ">suppr</a><span class='breaker'>&nbsp;</span></hgroup><aside><h4>Arme:</h4><p class='firstp'>" + thispost.arme + "</p><br /><h4>Semantique:</h4><p>" + thispost.semantique + "</p></aside></article>");
+	
+	
+var largeur = $("section").width();
+	//  alert('o'+largeur);
+	largeur = largeur+320;
+    $("section").css("width",largeur);
+  //  $("section").css("overflow","scroll");
+   //alert('n'+largeur);
+   }
+}).responseText;
+}
+
+
+
+});
+</script>
+</head>
+<body>
+<div id="app">
+	<div id="wrapperapp">
+				<header>
+				<span class="radio-0 radios" name="Circulaire 25 juillet 1995"><input type="radio"   value="0" /></span>	
+				<span class="radio-1 radios" name="Note de service 17 octobre 2002"><input type="radio"   value="1" /></span>	
+				<span class="radio-2 radios" name="21 janvier 2003" ><input type="radio" value="2" /></span>	
+				<span class="radio-3 radios"  name="6 janvier 2005"><input type="radio" value="3" /></span>	
+				<span class="radio-4 radios" name="Non daté, +/- 2006"><input type="radio"  value="4" /></span>	
+				<span class="radio-5 radios" name="Non daté, +/- 2007"><input type="radio"  value="5" /></span>	
+				<span class="radio-6 radios" name="6 novembre 2008"><input type="radio"  value="6" /></span>	
+				<span class="radio-7 radios" name="31 août 2009"><input type="radio"   value="7" /></span>	
+				<span class="radio-8 radios"  name="29 décembre 2009"><input type="radio"  value="8" /></span>	
+				</header>
+				<nav>
+					<ul>
+						<li><a class="active" rel="cir">Les circulaires</a></li>
+						<li ><a class="" rel="cadre">Les cadres d'intervention</a></li>
+						<li><a class="" rel="armes">Les armes employées</a></li>
+						<li><a class="" rel="more">En savoir plus</a></li>
+						<li>
+						<span class="socialnetwork radius opacity">
+							<span class="share twitter">
+								<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://data.owni.fr/" data-text="DataJournalism : donn&eacute;es, interactions, visualisations | Owni" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+							</span>
+							<span class="share facebookshare">
+								<a name="fb_share" type="button" href="http://www.facebook.com/sharer.php">Partager</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+							</span>
+							<span class="share email">
+								<a target="_blank" style="background: transparent" href="http://www.addtoany.com/email?linkurl=http://data.owni.fr/&amp;linkname=twitter-text&amp;t=twitter-text">
+						                <img alt="mail" src="./images/mini-email.png" width="28" height="18">
+						            </a>
+							</span>
+							<span class="share frame">
+								<a target="_blank">
+								<img alt="" src="./images/mini-iframe.png" width="33" height="19">
+								</a>
+							</span>
+						</span>
+						</li>
+					
+					</ul>
+				</nav>
+				<div class="overflower">
+				<section>
+				</section>	
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

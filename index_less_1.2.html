@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>sdfqsdf</title>
+	
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link rel="stylesheet" media="all" href="./css_less.css"/>
+		<meta name="viewport" content="width=device-width; initial-scale=1"/>
+		<!-- Add "maximum-scale=1" to fix the weird iOS auto-zoom bug on orientation changes. -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			// Your code here
+			
+			function makeBloc (
+				title,
+				category_1,
+				category_2,
+				text_1,
+				text_2,
+				classcss
+					) {
+				
+				var article		= $("<article>");
+				
+				var hgroup = $("<hgroup>",{'id':'c'+classcss,
+					mouseover: function(){
+						// alert('click');
+					}
+				});
+				var h3		= $("<h3>",{text:title,'style':'overflow: hidden'});
+				var link		= $("<a>", {'href':'http://www.google.fr',text:'Télécharger'});
+				var linkClose	= $("<a>", {'href':'javascript:;',text:' ','class':'close'});
+				var aside		= $("<aside>");
+				
+				var h4_first	= $("<h4>",{text:category_1});
+				var p_first		= $("<p>",{'class':'firstp',text:text_1});
+				var br_first	= $("<br />");
+				
+				var h4		= $("<h4>",{text:category_2});
+				var p			= $("<p>",{text:text_2});
+				
+				
+				
+				h4_first.appendTo(aside);
+				p_first.appendTo(aside);
+				br_first.appendTo(aside);
+				
+				h4.appendTo(aside);
+				p.appendTo(aside);
+				
+				h3.appendTo(hgroup);
+				link.appendTo(hgroup);
+				linkClose.appendTo(hgroup);
+				$("<span>",{text:'&nbsp;','class':'breaker'}).appendTo(hgroup);
+				$("<span>",{text:'&nbsp;','class':'breaker'}).after(hgroup);
+				
+				hgroup.appendTo(article);
+				aside.appendTo(article);
+				
+				article.appendTo('section');
+				article.css('display', 'none');
+				article.fadeIn("slow");
+			}
+			
+			/*makeBloc (
+				'31 aout 2009',
+				'Justifications:',
+				'Cadre d\'intervention prévue:',
+				'Lorem ipsum qdsf sdfqsd fq jbqsdkjf ksqhdfj qshfd qshklfhq lsf ds',
+				'Lorem ipsum qdsf sdfqsd fq jbqsdkjf ksqhdfj qshfd qshklfhq lsf ds' );
+				*/
+			
+			var wording = new Array();
+				wording['cadre'] = {
+					'justification':"Justifications",
+					'restriction':"Cadre d\'intervention prévue"
+				};
+				wording['circulaire'] = {
+					'signataires':"Signataires",
+					'destinataires':"Destinataires"
+				};
+				wording['arme'] = {
+					'restriction':"Restriction",
+					'arme':"Arme",
+					'semantique':"Sémantique"
+				};
+			
+			
+			function getJson () {
+				$.getJSON('flashball.json', function(data) {
+					var storage = data;
+					var i = 0;
+					
+					$.each(data.circulaires, function(index, circ) {
+						if ( i < 3 ) {
+							var letter = circ.letter.toLowerCase();
+							
+							makeBloc (
+								circ.date,
+								'Justifications:',
+								'Cadre d\'intervention prévue:',
+								circ.justification, 
+								circ.restriction,
+								letter
+							);
+							i++;
+						}
+					});
+	
+					
+				});
+			}
+			getJson ();
+			
+			
+			$("nav ul li").click(function(){
+				alert('click');
+				$('section').empty();
+				
+				getJson();
+			});
+
+		});
+		</script>
+	</head>
+
+	<body>
+	
+		<div id="app">
+			<div id="wrapperapp">
+				<header>
+					sqqsdfsqd
+					<input type="radio" name="circulaire" value="a" />
+					<input type="radio" name="circulaire" value="b" />
+					<input type="radio" name="circulaire" value="c" />
+					<input type="radio" name="circulaire" value="d" />
+					<input type="radio" name="circulaire" value="e" />
+					<input type="radio" name="circulaire" value="f" />
+					<input type="radio" name="circulaire" value="g" />
+					<input type="radio" name="circulaire" value="h" />
+					<input type="radio" name="circulaire" value="i" />
+				</header>
+				<nav>
+					<ul>
+						<li>Les circulaires</li>
+						<li>Les cadres d'intervention</li>
+						<li>Les armes employées</li>
+						<li>En savoir plus</li>
+					</ul>
+				</nav>
+				<section>
+					
+				</section>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

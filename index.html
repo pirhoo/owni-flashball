@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Flash-Ball: La totale</title>
+		<meta name="keywords" content="FlashBall, circulaires, comparatif, armes, police, cadres d'intervention, datavizualiation, infographie, document, Davduf, David Dufresne, Upian, OWNI" />
+		<meta name="description" content="Ce sont huit circulaires et un mode d'emploi des FlashBall que nous divulguons et mettons à la disposition de tous. Ce sont neuf documents officiels issus des services internes de la police; neuf témoignages qui disent la place prise progressivement par les «lanceurs de balles de défense» au sein de l'arsenal policier. 1995-2010: quinze ans de stratégie en quelques pages et en... comparatif libre." />
+		<meta name="robots" content="index, follow" />
+		<link rel="shortcut icon" content="./images/favicon.ico" />
+		
+		<!-- Fb share  Tom_ !-->
+		<link rel="image_src" href="http://app.owni.fr/flashball/images/Flash-ball_la_totale_portee-medium.jpg" />
+		<link rel="image_src" href="http://app.owni.fr/flashball/images/Flash-ball_la_totale_depenses-medium.jpg" />
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link rel="stylesheet" media="all" href="css_less.css"/>
+		<meta name="viewport" content="width=device-width; initial-scale=1"/>
+		<!-- Add "maximum-scale=1" to fix the weird iOS auto-zoom bug on orientation changes. -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script type="text/javascript" src="ui.core.js"></script>
+		<script type="text/javascript" src="jquery.usermode.js"></script>
+		<script type="text/javascript" src="jquery.bind.js"></script>
+		<script type="text/javascript" src="ui.checkbox.js"></script>
+		<script type="text/javascript">
+		$('document').ready(function(){ 
+			var currentTab = 'cir';
+			
+			$('input').checkBox();
+			$('input').attr('checked', false);
+			$('.ui-radio-state-checked').removeClass('ui-radio-state-checked');
+			
+			
+			$("input").click(function (){
+				var id = $(this).attr('value');
+				currentTab = $("nav").find('a.active').attr('rel')
+				// alert('click ' + currentTab);
+				
+				if ( currentTab != 'more' ) {
+					if ( $(".article-"+id).hasClass('visible') ) {
+						$('.radio-'+ id).find('span').removeClass('ui-radio-state-checked');
+						$('input[name='+ id +']').attr('checked', false);
+						$(".article-"+id).remove();
+						var largeur = $("section").width();
+						largeur = largeur-310;
+						$("section").css("width",largeur);
+					} 
+					else {
+						$('input[name='+ id +']').attr('checked', true);
+						var tab = $("nav").find('a.active').attr('rel');
+						if(!tab){tab = 'cir';}
+						$('.toogles').removeClass('visible');
+						$("." + tab + "-inside").addClass('visible');
+						show_single_post(id,tab);
+					}
+				}
+				if ( currentTab == 'more' ) {
+					if ( $('.radio-'+ id).find('span').hasClass('ui-radio-state-checked') ) {
+						$('.radio-'+ id).find('span').removeClass('ui-radio-state-checked');
+						$('input[name='+ id +']').attr('checked', false);
+					}
+				}
+				
+			});
+			
+			$(".close").live('click', function() {
+				var id = $(this).attr('rel');
+				$('.radio-'+id+' span').removeClass('ui-radio-state-checked');
+				$('input[name='+ id +']').attr('checked', false);
+				$(".article-"+id).remove();
+				
+				var largeur = $("section").width();
+				largeur = largeur-310;
+				$("section").css("width",largeur);
+			});
+			
+			$(".ui-radio").hover(
+				function (){
+					var my_text = $(this).parent().attr('name');
+					var left = $(this).css('left');
+					//alert($(this).attr('value'));
+					// left = left.replace("px", "") - 30;
+					
+					leftB = ( ( $(this).parent().find('input').attr('value') == 4 ) ? '18px' : '-18px' );
+					
+					content  = '<span class="bullet bulletInfo bulle show" style="top:50px; left:'+leftB+'"><span class="arrow"></span><span class="cleft"></span>';
+					content += my_text;
+					content += '<span class="cright"></span></span>';
+					$(this).after(content);
+				},
+				function () {
+					$(".bulle").fadeOut();
+					
+					if ( currentTab == 'more' ) {
+					var id = $(this).parent().find('input').attr('value');
+					
+					$('.radio-'+ id).find('span').removeClass('ui-radio-state-checked');
+					$('input[name='+ id +']').attr('checked', false);
+					}
+				}
+			);
+			
+			$(".cover a").live('click', function() {
+				// $(".cover").remove();
+				$("#wrapperapp").fadeOut('fast');
+				$(".cover").fadeOut('medium', function(){
+					$("#wrapperapp").fadeIn('slow');
+					$("#wrapperapp").css("overflow","auto");
+					// $("#wrapperapp").css("overflow-y","hidden");
+				});
+			});
+			
+			$("nav li.tabss a").live('click', function() {
+				currentTab = $("nav").find('a.active').attr('rel');
+				// alert(currentTab);
+				var id = $(this).attr('rel');	
+				if ( id=='more' ) {
+					$("#credits").css("display","block");
+					$("section").css("width",'930');
+					// $("section").css("overflow-y","auto");
+					$("section").css("overflow","hidden");
+				}
+				else {
+					$("#credits").css("display","none");
+					$("section").css("overflow-y","auto");
+				}
+				
+				if ( id=='cir' ) {
+					$(".cir-inside").addClass('visible');
+				}
+				
+				$("nav a").removeClass('active');
+				$(this).addClass('active');
+				$('.toogles').removeClass('visible');
+				$("." + id + "-inside").addClass('visible');
+				
+				$(".bg").animate({left: '-=1000'}, 400, function(){
+					$(".bg").replaceWith('<div class="bg"><img width="950" src="./images/bg_'+ id +'.png" style="position: fixed;" /></div>');
+					$(".bg").css("left", "-1000px");
+					$(".bg").animate({left: '+=1000'}, 400);
+				});
+			});
+			show_single_post(0,'cir');
+			show_single_post(1,'cir');
+			show_single_post(2,'cir');
+			
+			$(".radio-0 input").attr('checked', true);
+			$('.radio-0 .ui-radio').addClass('ui-radio-state-checked');
+			$(".radio-1 input").attr('checked', true);
+			$('.radio-1 .ui-radio').addClass('ui-radio-state-checked');
+			$(".radio-2 input").attr('checked', true);
+			$('.radio-2 .ui-radio').addClass('ui-radio-state-checked');
+				
+			
+
+
+			function show_single_post(id,tab){
+				var poi = $.ajax({
+					url:'flashball.json',
+					cache: false,
+					async: true,
+					type: "POST",
+					data: "{}",
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+					success: function(data){
+						var po = data.posts;
+						var thispost = po[id];
+						
+						class1 = 'hidden';
+						class2 = 'hidden';
+						class3 = 'hidden';
+						
+						if ( tab=='cir' ) {
+							class1 = 'visible';
+						}
+						else if ( tab=='cadre' ) {
+							class2 = 'visible';
+						}
+						else if( tab=='armes' ) {
+							class3 = 'visible';
+						}
+						else {}
+						
+						$("section").append("<article class='article-"+ thispost.id +" toogles cir-inside " + class1 + "'><hgroup id='c" + thispost.letter + "'><h3>" + thispost.date + "</h3><a href='./flashball-pdf/"+ thispost.pdf +"'>&bull;Télécharger</a><a  href='#' class='close' rel=" + thispost.id + "></a><span class='breaker'>&nbsp;</span></hgroup><span class='breaker'>&nbsp;</span><aside><h4>Intitulé:</h4><p class='firstp'>" + thispost.title + "</p><br /><h4>Signataire:</h4><p>" + thispost.signataires + "</p><br /><h4>Destinataires:</h4><p>" + thispost.destinataires + "</p><br /></aside></article>");
+						$("section").append("<article class='article-"+ thispost.id +" toogles cadre-inside " + class2 + "' ><hgroup id='c" + thispost.letter + "'><h3>" + thispost.date + "</h3><a href='./flashball-pdf/"+ thispost.pdf +"'>&bull;Télécharger</a><a  href='#' class='close' rel=" + thispost.id + "></a><span class='breaker'>&nbsp;</span></hgroup><span class='breaker'>&nbsp;</span><aside><h4>Justifications:</h4><p>" + thispost.justification + "</p><br /><h4>Cadre d'intervention prévue:</h4><p class='firstp'>" + thispost.intervention + "</p><h4>Restriction:</h4><p>" + thispost.restriction + "</p><br /></aside></article>");
+						$("section").append("<article class='article-"+ thispost.id +" toogles armes-inside " + class3 + "' ><hgroup id='c" + thispost.letter + "'><h3>" + thispost.date + "</h3><a href='./flashball-pdf/"+ thispost.pdf +"'>&bull;Télécharger</a><a href='#' class='close' rel=" + thispost.id + "></a><span class='breaker'>&nbsp;</span></hgroup><span class='breaker'>&nbsp;</span><aside><h4>Arme:</h4><p class='firstp'>" + thispost.arme + "</p><br /><h4>Semantique:</h4><p>" + thispost.semantique + "</p></aside></article>");
+						
+						var largeur = $("section").width();
+						//  alert('o'+largeur);
+						largeur = largeur + 310;
+						$("section").css("width",largeur);
+						$("section").css("overflow-y","scroll");
+						//alert('n'+largeur);
+					}
+				}).responseText;
+			}
+
+		});
+		
+		function getEmbed() {
+			$(".share .frame").hide();
+			$(".share .inputEmbed").show();
+		}
+		
+		function dropEmbed() {
+			$(".share .frame").show();
+			$(".share .inputEmbed").hide();
+		}
+	</script>
+</head>
+<body>
+<div id="app">
+	<div id="wrapperapp">
+<div class="cover"><a href="#">commencer</a></div>
+<div class="bg"><img width="950" src="./images/bg_cir.png" style="position: fixed;" /></div>
+	<header style="position: fixed;">
+				<span class="radio-0 radios" name="Circulaire 25 juillet 1995"><input type="radio"   value="0" /></span>	
+				<span class="radio-1 radios" name="Note de service 17 octobre 2002"><input type="radio"   value="1" /></span>	
+				<span class="radio-2 radios" name="21 janvier 2003" ><input type="radio" value="2" /></span>	
+				<span class="radio-3 radios"  name="6 janvier 2005"><input type="radio" value="3" /></span>	
+				<span class="radio-4 radios" name="Non daté, +/- 2006"><input type="radio"  value="4" /></span>	
+				<span class="radio-5 radios" name="Non daté, +/- 2007"><input type="radio"  value="5" /></span>	
+				<span class="radio-6 radios" name="6 novembre 2008"><input type="radio"  value="6" /></span>	
+				<span class="radio-7 radios" name="31 août 2009"><input type="radio"   value="7" /></span>	
+				<span class="radio-8 radios"  name="29 décembre 2009"><input type="radio"  value="8" /></span>	
+	</header>
+				<nav style="position: fixed; margin-top: 4px; width: 950px">
+					<ul>
+						<li class="first tabss"><a href='#' class="active" rel="cir">Les circulaires</a></li>
+						<li class="tabss" ><a class="" href='#' rel="cadre">Les cadres d'intervention</a></li>
+						<li class="tabss"><a class="" href='#' rel="armes">Les armes employées</a></li>
+						<li class="tabss last"><a class="" href='#' rel="more">En savoir plus</a></li>
+						<li class="social">
+						<span class="socialnetwork radius opacity">
+							<span class="share twitter">
+								<a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-url="http://owni.fr/2010/11/24/application-flash-ball-15-ans-de-documents-reveles-police-leaks-upian-davduf/" data-text="Flash-ball 15 ans de documents révélés | Owni" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+							</span>
+							<span class="share facebookshare">
+								<a target="_blank" name="fb_share" type="button" href="http://www.facebook.com/share.php?u=http://owni.fr/2010/11/24/application-flash-ball-15-ans-de-documents-reveles-police-leaks-upian-davduf/">Partager</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+							</span>
+							<span class="share email">
+								<a target="_blank" style="background: transparent" href="http://www.addtoany.com/email?linkurl=http://owni.fr/2010/11/24/application-flash-ball-15-ans-de-documents-reveles-police-leaks-upian-davduf/">
+						                <img alt="mail" src="./images/mini-email.png" width="28" height="18">
+						        </a>
+							</span>
+							<span class="share frame" style="display: none;">
+								<span class="share inputEmbed" style="display:none; margin-top:-4px;" >
+									<input value='<a href="http://owni.fr/2010/11/24/application-flash-ball-15-ans-de-documents-reveles-police-leaks-upian-davduf/" target="_blank"><img src="http://app.owni.fr/despoticmind/includes/style/img/apercu_FR_fr.jpg" alt="Despoticmind" /></a>' />
+									<span onclick="dropEmbed();">Fermer</span>
+								</span>
+								
+								<a class="share mini-embed bg-white " href="javascript:;" onclick="getEmbed()"><img alt="" src="./images/mini-iframe.png" width="33" height="19"></a>
+							</span>
+						</span>
+						</li>
+					
+					</ul>
+				</nav>
+				<div class="overflower">
+				<section>
+				</section>
+				</div>
+				<div id="credits" style="display:none">
+					<div id="credits-left">
+                   
+                        <img src="./images/about-titre.png" />
+                       
+                        <p><strong>Ce sont huit circulaires et un mode d'emploi des FlashBall que nous divulguons intégralement et mettons à la disposition de tous. Ce sont neuf documents officiels issus des services internes de la police; neuf notes pour la plupart confidentielles qui disent la place prise progressivement par les «lanceurs de balles de défense» au sein de l'arsenal policier. 1995-2010: quinze ans de stratégie en quelques pages et en... comparatif libre.</strong></p>
+                        <p>De 1995 (première note connue) à 2009 (dernière note faisant foi et loi), tout s'éclaire, s'expose, se révèle: le Flashball, d'abord réservé à des services d'élite dans des cadres d'intervention stricts et particulièrement dangereux, va se généraliser. Et dans les services, et dans les usages (points 1, 2, 3 de notre graphique et onglet «Les cadres d'intervention»).</p>
+                        <p>D'arme de catégorie 4, le Flashball va gagner au fil des années en précision et en longueur de tir pour devenir ce qu'il est aujourd'hui: une arme de catégorie 1 (cf. onglet «Les armes employées»). Dans l'intervalle, l'équipement a changé: du Flash Ball SuperPro, la police est passée au 40x46 Exact Impact. Un monde qui marque la rupture tactique: adieu l'arme dissuasive initiale, voici le temps du Flashball pour tous (cf. onglets «Les cadres d'intervention» et «En savoir plus»).</p>
+
+                        <p>De circulaire en circulaire, c'est tout ce glissement qui se fait jour; y compris sémantique (cf. onglet «Les circulaires»): en 1995, le flashball est un «fusil»; en 2009 il est un «nouveau moyen de force intermédiaire [mettant] en œuvre l'énergie cinétique d'un projectile à effet lésionnel réduit».</p>
+                        <p>Paradoxe: plus l'arme est généralisée, et son usage élargi, plus elle est soumise à des restrictions et à des réserves. Année après année, bavure après incident, les «doctrines d'emploi» s'allongent, se précisent, racontent ce que les militaires appelleraient des dommages collatéraux (cf. onglet «Les cadres d'intervention», rubrique «restrictions»).</p>
+
+                        <p>Mais le paradoxe n'est qu'apparent. Ces rappels administratifs dans les usages sont le prix à payer pour la généralisation de l'arme.</p>
+                        <p>Voici les pièces complètes du dossier. <br />À vous de les comparer.</p>                       
+                       
+                        <h3>Précisions</h3>
+
+                        <p><strong>À propos du nombre de lanceurs de balles de défense dans la police</strong><br />(cf. graphique de l’onglet «En savoir plus»)</p>
+
+                        <p>Le total du parc 2010 comprend les armes en dotation, celles destinées à la la formation, les armes cassées ou en réparation. On les retrouve principalement dans les Directions départementales de la Sécurité Publique et «anecdotiquement» en Police Judiciaire.</p>
+                       
+                        <p>Selon une source policière, le Bureau de l'armement de la police aurait procédé en février denier à un rappel en catimini de la quasi-totalité du parc des LBD 40x46 Exact Impact. Direction Limoges: l'atelier central logistique de la police nationale. Système de visée? Revu. Munitions? Mise en place de projectiles «moins vulnérants, plus souples pour les opérations de Maintien de l'ordre» selon notre source, qui a suivi la révision de près.</p>
+
+                        <p><strong>À propos des tableaux investissements et dépenses totales</strong><br />(ci-contre)</p>
+                        <p>Sources :</p>
+                        <ul>
+
+                            <li>Service interne de communication de la police (Ministère de l'intérieur)</li>
+                            <li>Procédure d'évaluation du LBD 40x46 (non daté, Bureau de l'armement et des matériels techniques de la Police Nationale)</li>
+                            <li><a href="http://www.interieur.gouv.fr/sections/a_votre_service/publications/rapports-iga/securite-police-prev-delinquance/copy_of_06-064-01-02/downloadFile/attachedFile/06-064-01_LOPSI_tome_I.pdf?nocache=1185354482.23" title="Accès au rapport" target="_blank">Rapport relatif à l'exécution sur l'exercice 2005 de la loi d'orientation et de programmation pour la sécurité intérieure du 29 août 2002</a> (septembre 2006, n°IGA : 06-064-01 LOPSI, p.75)</li>
+
+                        </ul>
+                        <p><em>Merci au groupe de travail du 27 Novembre pour sa précieuse aide.</em></p>
+
+                       
+                        <h3>Pour en savoir plus</h3>
+
+                        <ul>
+                            <li><a href="http://owni.fr/?p=36305" title="Voir l'article sur OWNI" target="_blank">Voir l’article dans son contexte, sur Owni</a></li>
+                        </ul>
+                        <br />
+
+                        <ul>
+                            <li><a href="http://27novembre2007.blogspot.com/" title="Groupe de travail du 27 novembre" target="_blank">Groupe de travail du 27 novembre</a>, groupe d’expertise sur les LBD</li>
+
+                            <li><a href="http://www.interieur.gouv.fr" title="Ministère de l'Intérieur" target="_blank">Ministère de l'Intérieur</a></li>
+                            <li><a href="http://www.flash-ball.com/" title="Verney-Carron" target="_blank">Verney-Carron</a>, fabricant du Flash Ball SuperPro</li>
+                            <li><a href="http://www.bt-ag.ch/" title="Brugger & Thomet" target="_blank">Brugger & Thomet</a>, fabricant du Lanceur 40x46 Exact Impact</li>
+
+                        </ul>   
+                    </div>
+					<div id="credits-right">
+						<h4>Cr&eacute;dits</h4>
+						<span class="links">
+							<a class="davduf" target='_blank' href="http://davduf.net/" alt="" title="Davduf, journaliste independant & documentariste"><img src="./images/davduf.jpg" /></a>
+							<a class="upian" target='_blank' href="http://www.upian.com/" alt="" title="Upian, web producer since 1974"><img src="./images/upian.jpg" /></a>
+							<a class="owni" target='_blank' href="http://owni.fr/" alt="" title="OWNI, digital journalism"><img src="./images/owni.png" /></a>
+						</span>	<!--  footer lovers /-) !-->
+						<p>Enqu&ecirc;te: <a target='_blank' href="http://davduf.net/" title="Davduf, journaliste independant & documentariste">David Dufresne</a></p>
+						<p>Design: Fred Bourgeais <a target='_blank' href="http://www.upian.com/" title="Upian, web producer since 1974">Upian</a></p>
+						<p>D&eacute;veloppement: <a target='_blank' href="http://owni.fr/" title="OWNI, digital journalism">OWNI</a></p>
+						<img width="290" title="Flash-ball la totale depenses,la totale portee" src="./images/infographie-1.png" />	
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
